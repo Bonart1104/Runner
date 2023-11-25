@@ -6,7 +6,6 @@ public class AidKit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("im colaided");
         if (collision.TryGetComponent(out Player player))
         {
             player.ApplyHeal(_healthPoints);

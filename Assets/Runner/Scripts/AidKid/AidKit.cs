@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class AidKit : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    [SerializeField] private int _healthPoints;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("im colaided");
         if (collision.TryGetComponent(out Player player))
         {
-            player.ApplyDamage(_damage);
-
+            player.ApplyHeal(_healthPoints);
         }
 
         Die();
@@ -20,3 +20,4 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
+

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : ObjectPool
 {
-    [SerializeField] private GameObject[] _enemyTembplast;
+    [SerializeField] private GameObject[] _prefabTembplast;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _secondsBetweenSpawn;
 
@@ -12,7 +10,7 @@ public class Spawner : ObjectPool
 
     private void Start()
     {
-        Inirialize(_enemyTembplast);
+        Inirialize(_prefabTembplast);
     }
 
     private void Update()
@@ -26,13 +24,13 @@ public class Spawner : ObjectPool
                 _elepsedTime = 0;
                 int SpawnPointNumber = Random.Range(0, _spawnPoints.Length);
 
-                SetEnemy(enemy, _spawnPoints[SpawnPointNumber].position);
+                SetWave(enemy, _spawnPoints[SpawnPointNumber].position);
 
             }
         }
     }
 
-    private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
+    private void SetWave(GameObject enemy, Vector3 spawnPoint)
     {
         enemy.SetActive(true);
         enemy.transform.position = spawnPoint;

@@ -30,7 +30,6 @@ public class PlayerMover : MonoBehaviour
         {
             _animator.Idleed();
         }
-
     }
 
     public void TryMoveUp()
